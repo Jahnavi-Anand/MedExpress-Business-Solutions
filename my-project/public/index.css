@@ -1,0 +1,303 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #fff;
+    box-shadow: 0 5px 15px #333;
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+.menu-toggle {
+    display: none; 
+    align-items: center;
+}
+
+.logo {
+    margin-left: 20px;
+}
+
+.logo img {
+    max-width: 150px; /* Adjust size as needed */
+}
+
+.ribbon {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.ribbon ul {
+    list-style: none;
+}
+
+.ribbon ul li {
+    display: inline;
+    margin-right: 20px;
+    position: relative; /* Add relative positioning for pseudo-element */
+}
+
+.ribbon ul li a {
+    text-decoration: none;
+    color: #333;
+    position: relative; /* Add relative positioning */
+}
+
+.ribbon ul li a::after {
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #00bfff; /* Light blue color */
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: width 0.5s; /* Smooth transition */
+}
+
+.ribbon ul li a:hover::after {
+    width: 100%; /* Expand width on hover */
+}
+
+header .ribbon .active{
+    color: #00bfff;
+}
+
+.hero {
+    position: relative;
+    height: 100vh; 
+    overflow: hidden; 
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/bgimg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px); /* Adjust blur intensity as needed */
+}
+
+.intro {
+    position: absolute;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+}
+
+
+footer {
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
+    padding: 10px;
+}
+
+.contact-info p {
+    margin: 1px 0;
+}
+i{
+    color: #012f60;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.services {
+    padding-top: 50px;
+    text-align: center; /* Center the section headings */
+    position: relative; /* Position relative for absolute positioning */
+    background-image: url('img/bgimg.jpg'); /* Add the blurred background image */
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the background image */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px); /* Adjust blur intensity as needed */
+}
+
+.section {
+    margin-bottom: 50px;
+}
+
+.section-heading {
+    color: #fff; /* Set color for section headings */
+    margin-bottom: 30px;
+}
+
+.subsection-heading {
+    color: #fff; /* Set color for subsection headings */
+}
+
+.service-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.image-container {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.service-item img {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.service-item .content {
+    text-align: center;
+    width: 100%;
+}
+
+.service-item h4,
+.service-item p {
+    color: #fff; /* Set color for service item text */
+    text-align: center;
+    width: 100%;
+    margin: 0;
+}
+
+.content{
+    color: #fff;
+}
+
+i{
+    color: #012f60;
+}
+
+#close{
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .ribbon {
+        display: none;       
+        position: fixed;
+        justify-content: flex-start;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        height: 100vh;
+        width: 300px;
+        color: #fff;
+        background-color: #012f60;
+        padding: 40px 20px 20px;
+        box-shadow: 0 40px 60px #fff;
+        transition: 0.3s;
+        z-index: 999;
+    }
+    
+    .ribbon.active {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .ribbon ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .ribbon ul li {
+        width: 100%; /* Ensure each list item occupies the full width */
+    }
+    
+    .ribbon ul li a {
+        text-decoration: none;
+        color: #fff;
+        padding: 10px 0; /* Add padding for better spacing */
+        display: block; /* Ensure each item is displayed as a block element */
+    }
+    
+
+    #navbar.active{
+        right: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #navbar.active a{
+        color: #fff;
+    }
+    .ribbon i{
+        color: #fff;
+    }
+
+    .ribbon li{
+        margin-bottom: 25px;
+    }
+
+    .menu-toggle {
+        display: flex; 
+        align-items: center;
+    }
+
+    .menu-toggle i{
+        color: #012f60;
+        font-size: 24px;
+        padding-left: 20px;
+    }
+
+    #close{
+        display: initial;
+        position: absolute;
+        top: 10px;
+        left:  30px;
+        color: #fff;
+        font-size: 24px;
+    }  
+
+    #lg-bag{
+        display: none !important;
+    }
+    
+    #hero{
+        height: 100vh;
+        padding: 0 80px;
+        background-position: top 30% right 30%;
+    }
+
+    intro {
+        padding-top: 250px;
+        padding-bottom: 250px;
+    }
+    
+}

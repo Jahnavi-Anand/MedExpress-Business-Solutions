@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - MedExpress</title>
+    <link rel="stylesheet" href="/cart.css">
+    <script src="https://kit.fontawesome.com/4c5acf577d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <a href="/index"><img src="/img/LOGO.png" alt="Website Logo"></a>
+        </div>
+        <div class="ribbon" id="navbar">
+            <ul>
+                <li><a href="/index">Home</a></li>
+                <li><a href="/shop">Shop</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/signup">Sign Up</a></li>
+                <li id="lg-bag"><a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <a href="" id="close"><i class="fa-solid fa-xmark"></i></a>
+            </ul>
+        </div>
+        
+        <div class="menu-toggle">
+            <a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a>
+            <i id="bar" class="fa-solid fa-bars"></i>
+        </div>
+    </header>
+
+<!--Main page-->
+    <section id="hero">
+        <h4>Trade-In-Offer</h4>
+        <h1>||YOUR CART||</h1>
+        <h2>!HOLI OFFER!</h2>
+        <p>Use coupon code MedX45 to save upto 45%</p>
+        <button><a href="/shop">Continue Shopping</a></button>
+    </section>
+
+    <section id="cart" class="section-p1"> 
+        <table width="100%">
+            <thead>
+                <tr>
+                    <td>Remove</td>
+                    <td>Image</td>
+                    <td>Product Name</td>
+                    <td>Price</td>
+                    <td>Quantity</td>
+                    <td>Subtotal</td>
+                </tr>
+            </thead>
+            <tbody>                
+                <tr>
+                    <td><i class="fa-regular fa-circle-xmark"></i><a href=""></a></td>
+                    <td><img src="img/med/Acetaminophen.jpg" alt="Acetaminophen"></td>
+                    <td>Acetaminophen 500.0 Mg</td>
+                    <td>₹8.96/Tablet</td>
+                    <td><input type="number" value="1"></td>
+                    <td>₹89.6</td>
+                </tr>
+                <tr>
+                    <td><i class="fa-regular fa-circle-xmark"></i><a href=""></a></td>
+                    <td><img src="img/med/alprazolam-tablets-ip-0-5-mg.jpeg" alt="Acetaminophen"></td>
+                    <td>Alprazolam 0.5 Mg</td>
+                    <td>₹ 250/Stripe</td>
+                    <td><input type="number" value="1"></td>
+                    <td>₹ 250</td>
+                </tr>
+                <tr>
+                    <td><i class="fa-regular fa-circle-xmark"></i><a href=""></a></td>
+                    <td><img src="img/med/ciprofloxacin-500mg-tablet.jpg" alt="Acetaminophen"></td>
+                    <td>Cipro 500mg Tablet</td>
+                    <td>₹18.8/Tablet</td>
+                    <td><input type="number" value="1"></td>
+                    <td>₹188</td>
+                </tr>                
+            </tbody>            
+        </table>
+    </section>
+
+    <section id="cart-add" class="section-p1">
+        <div id="coupon">
+            <h3>Apply Coupon Code:</h3>
+            <div>
+                <input type="text" placeholder="Enter your code here..">
+                <button class="normal">Apply</button>
+            </div>
+        </div>
+    
+        <div id="subtotal">
+            <h3>Cart Total</h3>
+            <table>
+                <tr>
+                    <td>Cart Subtotal</td>
+                    <td>₹0.00</td>
+                </tr>
+                <tr>
+                    <td>Shipping</td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td><strong>Total (including tax)</strong></td>
+                    <td><strong>₹0.00</strong></td>
+                </tr>
+            </table>
+            <button class="normal">Proceed to Checkout</button>
+        </div>
+    </section>    
+
+    <footer>
+        <div class="contact-info">
+            <p style="color: black;"><i class="fa-regular fa-envelope"></i>  medex.cc@gmail.com</p>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        // Get all quantity input fields
+        var quantityInputs = document.querySelectorAll('#cart input[type="number"]');
+        var cartSubtotalElement = document.querySelector('#subtotal td:nth-child(2)'); // Select by ID or appropriate CSS selector
+        var cartTotalElement = document.querySelector('#subtotal table tr:nth-child(3) td:nth-child(2) strong');
+
+        console.log("Quantity Inputs:", quantityInputs);
+        console.log("Cart Subtotal Element:", cartSubtotalElement);
+        console.log("Cart Total Element:", cartTotalElement);
+
+        // Function to calculate subtotal and total
+        function calculateTotal() {
+            var subtotal = 0;
+            // Loop through each row in the cart
+            quantityInputs.forEach(function(input) {
+                var quantity = parseInt(input.value);
+                var priceText = input.parentNode.nextElementSibling.textContent.trim();
+                console.log("Price Text:", priceText); // Log the price text
+                var priceMatch = priceText.match(/₹\s*([\d.]+)/);
+                console.log("Price Match:", priceMatch); // Log the price match result
+                if (priceMatch && priceMatch.length >= 2) {
+                    var price = parseFloat(priceMatch[1]);
+                    console.log("Price:", price); // Log the extracted price
+                    var rowSubtotal = quantity * price;
+                    // Update the subtotal for each row
+                    subtotal += rowSubtotal;
+                }
+            });
+            console.log("Subtotal:", subtotal); // Log the subtotal
+            // Update the subtotal and total in the DOM if elements exist
+            if (cartSubtotalElement && cartTotalElement) {
+                console.log("Updating subtotal and total...");
+                cartSubtotalElement.textContent = '₹' + subtotal.toFixed(2);
+                // Assuming tax is 10% (0.10)
+                var totalIncludingTax = subtotal * 1.10;
+                cartTotalElement.textContent = '₹' + totalIncludingTax.toFixed(2);
+            } else {
+                console.log("Subtotal or total element not found.");
+            }
+        }
+
+        // Add event listeners to quantity inputs
+        quantityInputs.forEach(function(input) {
+            input.addEventListener('input', calculateTotal);
+        });
+
+        // Initial calculation
+        calculateTotal();
+    });
+</script>  
+            
+</body>
+</html>

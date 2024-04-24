@@ -1,0 +1,225 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #fff;
+    box-shadow: 0 5px 15px #333;
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+.menu-toggle {
+    display: none;
+    align-items: center; 
+}
+
+.logo img {
+    max-width: 150px; 
+}
+
+.ribbon ul {
+    list-style: none;
+}
+
+.ribbon ul li {
+    display: inline;
+    margin-right: 20px;
+    position: relative; 
+}
+
+.ribbon ul li a {
+    text-decoration: none;
+    color: #000000;
+    position: relative; 
+    background-color: #ffffff; 
+    padding: 5px 10px; 
+    border-radius: 5px; 
+}
+
+.ribbon ul li a::after {
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #00bfff; 
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: width 0.5s; 
+}
+
+.ribbon ul li a:hover::after {
+    width: 100%; 
+}
+
+header .ribbon .active{
+    color: #00bfff;
+}
+
+.container {
+    padding: 20px;
+    background-image: url('img/bgimg.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-card {
+    width: 100%;
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.signup-card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: #005dc0;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto; /* Center the button */
+}
+
+.btn-primary:hover {
+    background-color: #002f60;
+}
+
+.text-center {
+    text-align: center;
+}
+
+footer {
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
+    padding: 10px;
+}
+
+.contact-info p {
+    margin: 1px 0;
+}
+i{
+    color: #012f60;
+}
+#close{
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .ribbon {
+        display: none;       
+        position: fixed;
+        justify-content: flex-start;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        height: 100vh;
+        width: 300px;
+        color: #fff;
+        background-color: #012f60;
+        padding: 40px 20px 20px;
+        box-shadow: 0 40px 60px #fff;
+        transition: 0.3s;
+        z-index: 999;
+    }
+    
+    .ribbon.active {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .ribbon ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .ribbon ul li {
+        width: 100%; /* Ensure each list item occupies the full width */
+    }
+    
+    .ribbon ul li a {
+        text-decoration: none;
+        color: #fff;
+        padding: 10px 0; 
+        display: block; 
+        background-color: transparent;
+    }
+    
+
+    #navbar.active{
+        right: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #navbar.active a{
+        color: #fff;
+    }
+    .ribbon i{
+        color: #fff;
+    }
+
+    .ribbon li{
+        margin-bottom: 25px;
+    }
+
+    .menu-toggle {
+        display: flex; 
+        align-items: center;
+    }
+
+    .menu-toggle i{
+        color: #012f60;
+        font-size: 24px;
+        padding-left: 20px;
+    }
+
+    #close{
+        display: initial;
+        position: absolute;
+        top: 10px;
+        left:  30px;
+        color: #fff;
+        font-size: 24px;
+    }  
+
+    #lg-bag{
+        display: none !important;
+    }
+}

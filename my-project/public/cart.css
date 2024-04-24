@@ -1,0 +1,406 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+/* Basic styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #fff;
+    box-shadow: 0 5px 15px #333;
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+.menu-toggle {
+    display: none; 
+    align-items: center;
+}
+
+.logo {
+    margin-left: 20px;
+}
+
+.logo img {
+    max-width: 150px;
+}
+
+.ribbon {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.ribbon ul {
+    list-style: none;
+}
+
+.ribbon ul li {
+    display: inline;
+    margin-right: 20px;
+    position: relative; /* Add relative positioning for pseudo-element */
+}
+
+.ribbon ul li a {
+    text-decoration: none;
+    color: #333;
+    position: relative; /* Add relative positioning */
+}
+
+.ribbon ul li a::after {
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #00bfff; /* Light blue color */
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: width 0.5s; /* Smooth transition */
+}
+
+.ribbon ul li a:hover::after {
+    width: 100%; 
+}
+
+header .ribbon .active{
+    color: #00bfff;
+}
+/*Main Page*/
+
+#hero{
+    background-image: url("img/bgimg.jpg");
+    height: 100%;
+    width: 100%;
+    background-position: top 25% right 0;
+    position:  relative;
+    text-align: center;
+}
+
+#hero h4{
+    padding-top: 20px;
+    padding-bottom: 15px;
+    color: #fff;
+}
+
+#hero h2{
+    background: -webkit-linear-gradient(yellow, violet) ;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#hero p{
+    color: #fff;
+}
+
+#hero a{
+    text-decoration: underline;
+    color: bisque;
+}
+
+#hero a:hover{
+    color: #00bfff;
+}
+
+#hero h1{
+    color: bisque;
+    padding-bottom: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+}
+
+.section-p1{
+    padding: 40px 80px;
+    
+}
+
+#hero button{
+    background-color: transparent;
+    color: bisque;
+    border: 0;
+    padding: 14px 80px 14px 65px;
+    background-repeat: no-repeat;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+#cart table{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    white-space: nowrap;
+}
+
+#cart table img{
+    width: 70px;
+}
+
+#cart table td:nth-child(1){
+    width: 100px;
+    text-align: center;
+}
+
+#cart table td:nth-child(2){
+    width: 150px;
+    text-align: center;
+}
+
+#cart table td:nth-child(3){
+    width: 250px;
+    text-align: center;
+}
+
+#cart table td:nth-child(4),
+#cart table td:nth-child(5),
+#cart table td:nth-child(6){
+    width: 150px;
+    text-align: center;
+}
+
+#cart table td:nth-child(5) input{
+    width: 70px;
+    padding: 10px 5px 10px 15px;
+}
+
+#cart table thead{
+    border: 1px solid #333;
+    border-left: none;
+    border-right: none;
+}
+
+#cart table thead td{
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    padding: 18px 0;
+}
+
+#cart table tbody tr td{
+    padding-top: 15px;
+} 
+
+#cart table tbody td{
+    font-size: 13px;
+}
+
+#cart-add{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#coupon{
+    width: 50%;
+    margin-bottom: 30px;
+}
+
+#coupon h3,
+#subtotal h3{
+    padding-bottom: 15px;
+}
+
+#coupon input{
+    padding: 10px 20px;
+    outline: none;
+    width: 60%;
+    margin-right: 10px;
+    border: 1px solid #333;
+}
+
+#coupon button,
+#subtotal button{
+    background-color: #005dc0;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+#subtotal{
+    width: 50%;
+    margin-bottom: 30px;
+    border: 1px solid #333;
+    padding: 30px;
+}
+
+#subtotal table{
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#subtotal table td{
+    width: 50%;
+    border: 1px solid #333;
+    padding: 10px;
+    font-size: 13px;
+}
+
+footer {
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
+    padding: 10px;
+}
+
+.contact-info p {
+    margin: 1px 0;
+}
+i{
+    color: #012f60;
+}
+
+#close{
+    display: none;
+}
+
+#cart{
+    overflow-x: auto;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .section-p1{
+        padding: 40px 40px;
+    }
+    .ribbon {
+        display: none;       
+        position: fixed;
+        justify-content: flex-start;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        height: 100vh;
+        width: 300px;
+        color: #fff;
+        background-color: #012f60;
+        padding: 40px 20px 20px;
+        box-shadow: 0 40px 60px #fff;
+        transition: 0.3s;
+        z-index: 999;
+    }
+    
+    .ribbon.active {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .ribbon ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .ribbon ul li {
+        width: 100%; /* Ensure each list item occupies the full width */
+    }
+    
+    .ribbon ul li a {
+        text-decoration: none;
+        color: #fff;
+        padding: 10px 0; /* Add padding for better spacing */
+        display: block; /* Ensure each item is displayed as a block element */
+    }
+    
+
+    #navbar.active{
+        right: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #navbar.active a{
+        color: #fff;
+    }
+    .ribbon i{
+        color: #fff;
+    }
+
+    .ribbon li{
+        margin-bottom: 25px;
+    }
+
+    .menu-toggle {
+        display: flex; 
+        align-items: center;
+    }
+
+    .menu-toggle i{
+        color: #012f60;
+        font-size: 24px;
+        padding-left: 20px;
+    }
+
+    #close{
+        display: initial;
+        position: absolute;
+        top: 10px;
+        left:  30px;
+        color: #fff;
+        font-size: 24px;
+    }  
+
+    #lg-bag{
+        display: none !important;
+    }
+    
+    #hero{
+        height: 20vh;
+        padding: 0 80px;
+        background-position: top 30% right 30%;
+    }
+}
+    @media (max-width: 477px){
+        .section-p1{
+            padding: 20px;
+        }
+    
+        #ribbon{
+            padding: 10px 30px;
+        }
+    
+        h1{
+            font-size: 36px;
+        }
+    
+        #hero{
+            padding: 0 20px;
+            background-position: 50%;
+        }
+        
+        #newsletter{
+            padding: 40px 20px;
+        }
+    
+        #newsletter .form{
+            width: 100%;
+        }
+    
+        footer .copyright{
+            text-align: start;
+        }
+
+        #cart-add{
+            flex-direction: column;
+        }
+
+        #coupon{
+            width: 100%;
+        }
+
+        #subtotal{
+            width: 100%;
+            padding: 20px;
+        }
+
+    }
